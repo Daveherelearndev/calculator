@@ -21,6 +21,7 @@
 body {   
     overflow: hidden;
     height: 1vh;
+    touch-action: manipulation;
 }
 
 
