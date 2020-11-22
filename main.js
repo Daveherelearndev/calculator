@@ -23,7 +23,7 @@ let dotCrossOper = true;
 let hasDot = false;
 
 function deleteLast() {
-    if (displayArray.length === 1) {
+    if (displayArray.length <= 1) {
         clearAll();
     } else {
         deleteOrClear = true;
