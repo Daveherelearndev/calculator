@@ -626,3 +626,14 @@ equalKey.addEventListener("click", equalStart);
 document.body.addEventListener('mousedown',function(e){ 
 	e.preventDefault(); //prevent db click highlight effect
 }) 
+
+document.addEventListener('touchstart', this.touchstart);
+document.addEventListener('touchmove', this.touchmove);
+
+function touchstart(e) {
+    e.preventDefault()
+}
+
+function touchmove(e) {
+    e.preventDefault()
+}
