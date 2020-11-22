@@ -278,8 +278,8 @@ function keyPressLeave(e) {
 }
 keys.forEach(key => key.addEventListener("mousedown", keyPressEnter);
 keys.forEach(key => key.addEventListener("mouseup", keyPressLeave);
-keys.forEach(key => key.addEventListener("touchstart", keyPressEnter);
-keys.forEach(key => key.addEventListener("touchend", keyPressLeave);
+//keys.forEach(key => key.addEventListener("touchstart", keyPressEnter);
+//keys.forEach(key => key.addEventListener("touchend", keyPressLeave);
 //key-press-effect(end)
 
 let startPressTime;
