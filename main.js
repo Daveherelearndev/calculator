@@ -261,25 +261,21 @@ keys.forEach(key => {
 
 
 //key-press-effect(start)
-function keyPressEnter(e) {
+keys.forEach(key => key.addEventListener("mousedown", (e) => {  
     if (e.target.classList.contains("inner")) {
         e.target.classList.add("press")
         //console.log(e.target.classList);
     } else {
         e.target.children[0].classList.add("press");
-    } 
-}
-function keyPressLeave(e) {
+    }   
+}));
+keys.forEach(key => key.addEventListener("mouseup", (e) => {
     if (e.target.classList.contains("inner")) {
         e.target.classList.remove("press");     
     } else {
         e.target.children[0].classList.remove("press");
-    }
-}
-keys.forEach(key => key.addEventListener("mousedown", keyPressEnter);
-keys.forEach(key => key.addEventListener("mouseup", keyPressLeave);
-//keys.forEach(key => key.addEventListener("touchstart", keyPressEnter);
-//keys.forEach(key => key.addEventListener("touchend", keyPressLeave);
+    }    
+}));
 //key-press-effect(end)
 
 let startPressTime;
