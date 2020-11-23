@@ -197,21 +197,26 @@ window.addEventListener("keyup", disconnectKey);
 function disconnectKey(e) {
     console.log(e.code);
     let keyMatch = document.querySelector(`[data-match="${e.code}"]`);
+    let keyPad = document.querySelector(`[data-pad="${e.code}"]`)
     if (!e.ctrlKey && e.code === "Backspace") {
         deleteKey.children[0].classList.remove("press"); 
     }
     if (e.ctrlKey && e.code === "Backspace") {
         clearKey.children[0].classList.remove("press"); 
     }
-    if (e.code === "Enter") {
+    if (e.code === "Enter" || "NumpadEnter") {
         equalKey.children[0].classList.remove("press"); 
-    } else if (e.shiftKey && e.code === "Digit8") {
+    } else if ((e.shiftKey && e.code === "Digit8") || e.code === "NumpadMultiply") {
         timesKey.children[0].classList.remove("press"); 
-    } else if (e.shiftKey && e.code === "Equal") {
+    } else if ((e.shiftKey && e.code === "Equal") || e.code === "NumpadAdd") {
         addKey.children[0].classList.remove("press"); 
     } else {
         //key0 to key9
-        keyMatch.children[0].classList.remove("press");        
+	if (keyMatch != null) {
+        keyMatch.children[0].classList.remove("press");  	
+	} else if (keyPad != null) {
+        keyPad.children[0].classList.remove("press");          
+        }      
     }   
 }
 
@@ -219,7 +224,7 @@ function connectKey(e) {
     console.log(e);
     console.log(e.code);
     let keyMatch = document.querySelector(`[data-match="${e.code}"]`);
-
+    let keyPad = document.querySelector(`[data-pad="${e.code}"]`)
     if (!e.ctrlKey && e.code === "Backspace") {
         deleteKey.children[0].classList.add("press"); 
         deleteLast();
@@ -228,21 +233,25 @@ function connectKey(e) {
         clearKey.children[0].classList.add("press"); 
         clearAll();
     }
-    if (e.code === "Enter") {
+    if (e.code === "Enter" || "NumpadEnter") {
         equalKey.children[0].classList.add("press"); 
         equalStart();
-    } else if (e.shiftKey && e.code === "Digit8") {
+    } else if ((e.shiftKey && e.code === "Digit8") || e.code === "NumpadMultiply") {
         timesKey.children[0].classList.add("press"); 
         displayKey(timesKey);
-    } else if (e.shiftKey && e.code === "Equal") {
+    } else if ((e.shiftKey && e.code === "Equal") || e.code === "NumpadAdd") {
         addKey.children[0].classList.add("press"); 
         displayKey(addKey);
     } else {
         //key0 to key9
+	if (keyMatch != null) {
         keyMatch.children[0].classList.add("press");        
-        displayKey(keyMatch);
+        displayKey(keyMatch);	
+	} else if (keyPad != null) {
+        keyPad.children[0].classList.add("press");        
+        displayKey(keyPad);		
+	}
     }
-    //if (e.code === ``)
 }
 /********keyboard support*********/
 
