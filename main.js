@@ -204,7 +204,7 @@ function disconnectKey(e) {
     if (e.ctrlKey && e.code === "Backspace") {
         clearKey.children[0].classList.remove("press"); 
     }
-    if (e.code === "Enter" || "NumpadEnter") {
+    if (e.code === "Enter" || e.code === "NumpadEnter") {
         equalKey.children[0].classList.remove("press"); 
     } else if ((e.shiftKey && e.code === "Digit8") || e.code === "NumpadMultiply") {
         timesKey.children[0].classList.remove("press"); 
@@ -233,7 +233,7 @@ function connectKey(e) {
         clearKey.children[0].classList.add("press"); 
         clearAll();
     }
-    if (e.code === "Enter" || "NumpadEnter") {
+    if (e.code === "Enter" || e.code === "NumpadEnter") {
         equalKey.children[0].classList.add("press"); 
         equalStart();
     } else if ((e.shiftKey && e.code === "Digit8") || e.code === "NumpadMultiply") {
